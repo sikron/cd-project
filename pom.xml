@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <build>
-        <finalName>cd-project-${git.commit.time}-${git.commit.id.abbrev}</finalName>
+        <finalName>cd-project_${git.commit.time}-${git.commit.id.abbrev}</finalName>
 
         <resources>
             <resource>
@@ -17,6 +17,7 @@
                 <filtering>true</filtering>
                 <includes>
                     <include>**/build.properties</include>
+                    <include>**/version</include>
                 </includes>
             </resource>
             <resource>
@@ -40,7 +41,6 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <!--<dateFormat>yyyy-MM-dd'T'HH:mm:ss'Z'</dateFormat>-->
                     <dateFormat>yyyyMMdd'T'HHmmss'Z'</dateFormat>
                     <dateFormatTimeZone>UTC</dateFormatTimeZone>
                 </configuration>

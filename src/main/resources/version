@@ -1,0 +1,1 @@
+${git.commit.time}-${git.commit.id.abbrev}
