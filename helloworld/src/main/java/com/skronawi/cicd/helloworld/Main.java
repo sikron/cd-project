@@ -1,4 +1,4 @@
-package com.skronawi.cicd;
+package com.skronawi.cicd.helloworld;
 
 public class Main {
 

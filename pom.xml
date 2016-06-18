@@ -12,6 +12,7 @@
     <modules>
         <module>helloworld</module>
         <module>util</module>
+        <module>webapp</module>
     </modules>
 
     <build>

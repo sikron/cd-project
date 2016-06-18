@@ -9,10 +9,16 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>helloworld</artifactId>
+    <artifactId>webapp-parent</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>impl</module>
+    </modules>
 
-    <build>
-        <finalName>cd-project-helloworld_${git.commit.time}-${git.commit.id.abbrev}</finalName>
-    </build>
+    <properties>
+        <spring.version>4.2.4.RELEASE</spring.version>
+        <spring.data.version>1.9.2.RELEASE</spring.data.version>
+        <testng.version>6.9.10</testng.version>
+    </properties>
 
 </project>
