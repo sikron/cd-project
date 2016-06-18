@@ -5,29 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.skronawi.cicd</groupId>
-    <artifactId>impl</artifactId>
+    <artifactId>parent</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
-    <build>
-        <finalName>cd-project_${git.commit.time}-${git.commit.id.abbrev}</finalName>
+    <modules>
+        <module>helloworld</module>
+        <module>util</module>
+    </modules>
 
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/build.properties</include>
-                    <include>**/version</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>false</filtering>
-                <includes>
-                    <include>**/*</include>
-                </includes>
-            </resource>
-        </resources>
+    <build>
         <plugins>
             <plugin>
                 <groupId>pl.project13.maven</groupId>
