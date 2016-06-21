@@ -11,9 +11,7 @@
 
     <artifactId>webapp-impl</artifactId>
 
-    <properties>
-        <skipITs>true</skipITs>
-    </properties>
+    <packaging>war</packaging>
 
     <dependencies>
         <dependency>
@@ -59,18 +57,6 @@
             <version>3.4.2</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${testng.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>
@@ -103,6 +89,7 @@
                 <configuration>
                     <warSourceDirectory>impl/src/main/webapp</warSourceDirectory>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <attachClasses>true</attachClasses>
                 </configuration>
             </plugin>
             <plugin>
@@ -113,27 +100,6 @@
                     <httpConnector>
                         <port>8888</port>
                     </httpConnector>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19.1</version>
-                <configuration>
-                    <includes>
-                        <include>**/*Test</include>
-                    </includes>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19.1</version>
-                <configuration>
-                    <skip>${skipITs}</skip>  <!-- not possible with execution in upper instance -->
-                    <includes>
-                        <include>**/*IT</include>
-                    </includes>
                 </configuration>
             </plugin>
         </plugins>

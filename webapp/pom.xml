@@ -13,6 +13,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>impl</module>
+        <module>utit</module>
+        <module>apptest</module>
     </modules>
 
     <properties>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>webapp-parent</artifactId>
+        <groupId>com.skronawi.cicd</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>apptest</artifactId>
+
+    <properties>
+        <webapp.apptest.host>localhost</webapp.apptest.host>
+        <webapp.apptest.port>8888</webapp.apptest.port>
+        <skipTests>false</skipTests>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.skronawi.cicd</groupId>
+            <artifactId>webapp-impl</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>com.skronawi.cicd</groupId>
+            <artifactId>webapp-impl</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <testResources>
+            <testResource>
+                <directory>${project.basedir}/src/test/resources</directory>
+                <targetPath>${project.build.directory}/test-classes</targetPath>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+
+        <plugins>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.18.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <includes>
+                        <include>**/ThingAppTest*</include>
+                    </includes>
+                </configuration>
+            </plugin>
+
+            <!--just for de-activating surefire here - failsafe should do the testing -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/*</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <!-- https://codehaus-cargo.github.io/cargo/Configuration+properties.html -->
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.4.16</version>
+                <executions>
+                    <execution>
+                        <id>start-container</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                    </execution>
+                    <!-- in between execute failsafe tests -->
+                    <execution>
+                        <id>stop-container</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <skip>${skipTests}</skip>
+                    <container>
+                        <containerId>tomcat8x</containerId>
+                        <output>${project.build.directory}/server.log</output>
+                        <log>${project.build.directory}/cargo.log</log>
+                        <append>true</append>
+                    </container>
+                    <configuration>
+                        <properties>
+                            <!--<cargo.hostname>${webapp.apptest.host}</cargo.hostname>-->
+                            <cargo.servlet.port>${webapp.apptest.port}</cargo.servlet.port>
+                        </properties>
+                    </configuration>
+                    <deployables>
+                        <deployable>
+                            <groupId>com.skronawi.cicd</groupId>
+                            <artifactId>webapp-impl</artifactId>
+                            <type>war</type>
+                            <properties>
+                                <!--webapp-impl is the default name, just to say it explicitly here for docu-->
+                                <context>webapp-impl</context>
+                            </properties>
+                        </deployable>
+                    </deployables>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
