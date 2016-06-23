@@ -14,6 +14,42 @@
         <module>webapp</module>
     </modules>
 
+    <!--for uploading-->
+    <distributionManagement>
+        <repository>
+            <id>release</id>
+            <name>Release Repository</name>
+            <url>http://localhost:8081/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshot</id>
+            <name>Snapshot Repository</name>
+            <url>http://localhost:8081/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <!--for downloading-->
+    <repositories>
+        <repository>
+            <id>release</id>
+            <name>Release Repository</name>
+            <url>http://localhost:8081/content/repositories/releases</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+        </repository>
+        <repository>
+            <id>snapshot</id>
+            <name>Snapshot Repository</name>
+            <url>http://localhost:8081/content/repositories/snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <build>
         <plugins>
             <plugin>

@@ -1,2 +1,3 @@
 - asciidoc step
 - use dbUnit on apptests. -> add db data outside of the app and use this data in app tests
+- use docker compose to start jenkins-master and sonarqube container

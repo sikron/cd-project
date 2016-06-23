@@ -132,8 +132,6 @@
                                 <!--webapp-impl is the default name, just to say it explicitly here for docu-->
                                 <context>webapp-impl</context>
                             </properties>
-                            <!--version is overriden in jenkins job-->
-                            <location>${project.basedir}/cd-project-webapp-bundle_${version}.war</location>
                         </deployable>
                     </deployables>
                 </configuration>
