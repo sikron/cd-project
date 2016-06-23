@@ -19,12 +19,12 @@
         <repository>
             <id>release</id>
             <name>Release Repository</name>
-            <url>http://localhost:8081/content/repositories/releases</url>
+            <url>http://172.17.0.3:8081/content/repositories/releases</url>
         </repository>
         <snapshotRepository>
             <id>snapshot</id>
             <name>Snapshot Repository</name>
-            <url>http://localhost:8081/content/repositories/snapshots</url>
+            <url>http://172.17.0.3:8081/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -33,7 +33,7 @@
         <repository>
             <id>release</id>
             <name>Release Repository</name>
-            <url>http://localhost:8081/content/repositories/releases</url>
+            <url>http://172.17.0.3:8081/content/repositories/releases</url>
             <releases>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
@@ -42,7 +42,7 @@
         <repository>
             <id>snapshot</id>
             <name>Snapshot Repository</name>
-            <url>http://localhost:8081/content/repositories/snapshots</url>
+            <url>http://172.17.0.3:8081/content/repositories/snapshots</url>
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
