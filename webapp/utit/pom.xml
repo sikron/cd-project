@@ -12,7 +12,7 @@
     <artifactId>utit</artifactId>
 
     <properties>
-        <skipITs>true</skipITs>
+        <skipITs>false</skipITs>
     </properties>
 
     <dependencies>
