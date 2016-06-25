@@ -89,8 +89,8 @@
                 <configuration>
                     <warSourceDirectory>impl/src/main/webapp</warSourceDirectory>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <!--so that other projects can actually uses classes from this project-->
                     <attachClasses>true</attachClasses>
-                    <archiveClasses>true</archiveClasses>
                 </configuration>
             </plugin>
             <plugin>

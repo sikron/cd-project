@@ -28,6 +28,7 @@
             <groupId>com.skronawi.cicd</groupId>
             <artifactId>webapp-impl</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <classifier>classes</classifier>
         </dependency>
 
         <dependency>
