@@ -90,6 +90,7 @@
                     <warSourceDirectory>impl/src/main/webapp</warSourceDirectory>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                     <attachClasses>true</attachClasses>
+                    <archiveClasses>true</archiveClasses>
                 </configuration>
             </plugin>
             <plugin>
