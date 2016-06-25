@@ -15,8 +15,8 @@
     </modules>
 
     <properties>
-        <nexus.url>172.17.0.4:8081</nexus.url>
-        <sonar.url>172.17.0.3:9000</sonar.url>
+        <nexus.url>172.17.0.3:8081</nexus.url>
+        <sonar.url>172.17.0.2:9000</sonar.url>
     </properties>
 
     <!--for uploading-->
